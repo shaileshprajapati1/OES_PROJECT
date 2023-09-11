@@ -13,6 +13,7 @@
     <script src="<?php echo $this->URL; ?>register/js/jquery.js" type="text/javascript"></script>
 
     <script src="<?php echo $this->URL; ?>register/js/bootstrap.min.js" type="text/javascript"></script>
+
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <?php if (@$_GET['w']) {
         echo '<script>alert("' . @$_GET['w'] . '");</script>';
@@ -61,9 +62,10 @@
 <body>
     <div class="container">
         <div class="col-md-8 panel">
+            <a href="home"><img src="https://cdn-icons-png.flaticon.com/128/1946/1946488.png?ga=GA1.1.486361315.1680669941" width="30px" alt=""></a>
             <h1 class="text-center">Register Form</h1>
             <!-- sign in form begins -->
-            <form class="form-horizontal" name="form"  onSubmit="return validateForm()" method="POST">
+            <form class="form-horizontal" name="form" onSubmit="return validateForm()" method="POST">
                 <fieldset>
 
 
@@ -133,7 +135,7 @@
 
                         </div>
                     </div>
-                 
+
                     <!-- Button -->
                     <div class="form-group">
                         <label class="col-md-12 control-label" for=""></label>

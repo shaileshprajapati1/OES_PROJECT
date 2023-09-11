@@ -71,17 +71,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							 <ul class="nav navbar-nav link-effect-4">
-							<li class="active"><a href="home" data-hover="home">Home</a> </li>
+							<li class="active"><a href="home" data-hover="Home">Home</a> </li>
 								<li><a href="about" data-hover="About">About </a> </li>
-								<li><a href="gallery"  data-hover="Gallery">Gallery</a></li>
-								<li class="dropdown">
+								<!-- <li><a href="gallery"  data-hover="Gallery">Gallery</a></li> -->
+								<!-- <li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">Pages <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="icons.html">Icons</a></li>
 										<li><a href="typography.html">Short Codes</a></li>
 									</ul>
-							  </li>
+							  </li> -->
 								<li><a href="contact" data-hover="Contact">Contact</a></li>
+								<li><a href="login" >SIGN IN</a></li>
+								<li><a href="register" >SIGN UP</a></li>
 							  </ul>
 							</div><!-- /.navbar-collapse -->
 						</div>

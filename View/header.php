@@ -82,7 +82,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</ul>
 							  </li> -->
 								<li><a href="contact" data-hover="Contact">Contact</a></li>
-								<li><a href="login" >SIGN IN</a></li>
+								<?php 
+								// echo "<pre>";
+								// print_r($_SESSION['Userdata']);
+								// echo "</pre>";
+								if(isset($_SESSION['Userdata'])){ ?>
+									<li><a href="logout" >LOGOUT</a></li>
+
+								<?php } else { ?>
+
+									<li><a href="login" >SIGN IN</a></li>
+							<?php	}
+								?>
 								<li><a href="register" >SIGN UP</a></li>
 							  </ul>
 							</div><!-- /.navbar-collapse -->

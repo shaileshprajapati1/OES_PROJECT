@@ -28,6 +28,9 @@ class Controller extends Model
                     include_once("View/contact.php");
                     include_once("View/footer.php");
                     break;
+                case '/login':
+                    echo "login page";
+                    break;
                 case '/register':
                     include_once("View/register.php");
                     if (isset($_POST['register'])) {
@@ -42,11 +45,30 @@ class Controller extends Model
                         // echo "<pre>";
                         // print_r($data);
                         // echo "</pre>";
+                        $Emailcheck = $this->Select("users", array("email" => $_POST['email']));
+                        // echo "<pre>";
+                        // print_r($Emailcheck['Data']->email);
+                        // echo "</pre>";
 
-                        $InsertRes = $this->Insert("users", $data);
-                        echo "<pre>";
-                        print_r($InsertRes);
-                        echo "</pre>";
+                        if ($Emailcheck['Data']->email != $_POST['email']) {
+
+                            $InsertRes = $this->Insert("users", $data);
+                            // echo "<pre>";
+                            // print_r($InsertRes);
+                            // echo "</pre>";
+                            if($InsertRes['Code'] == 1){
+                                echo " <script>
+                                alert('Registration Success')
+                                window.location.href ='login'
+                                </script>";
+                            }
+                        } else {
+
+                            echo " <script>
+                            alert('Email Already Register')
+                           
+                            </script>";
+                        }
                     }
                     break;
 

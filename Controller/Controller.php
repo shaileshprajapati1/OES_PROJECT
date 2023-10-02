@@ -1,11 +1,14 @@
 
 <?php
+date_default_timezone_set('Asia/Kolkata');
+require("Model/Model.php");
 
-class Controller
+class Controller extends Model
 {
     public $URL = "";
     function __construct()
     {
+        parent::__construct();
         $this->URL = "http://localhost/oes_project/Public/";
 
         if (isset($_SERVER['PATH_INFO'])) {

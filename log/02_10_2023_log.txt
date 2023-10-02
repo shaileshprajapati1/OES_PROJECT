@@ -1,0 +1,6 @@
+
+Error Date Time >>> 02-10-2023 03:31:39 PM
+Error Msg >>> Access denied for user 'root1'@'localhost' (using password: NO)
+
+Error Date Time >>> 02-10-2023 03:32:05 PM
+Error Msg >>> Unknown database 'project_oes1'

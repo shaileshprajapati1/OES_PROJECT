@@ -33,33 +33,40 @@ class Controller extends Model
                     echo "adminpage";
                     break;
                 case '/logout':
-                   session_destroy();
-                   header("location:login");
+                    session_destroy();
+                    header("location:login");
                     break;
                 case '/login':
                     include_once("View/login.php");
                     if (isset($_POST['login'])) {
                         array_pop($_POST);
-                        $LoginRes = $this->Select("users", array("email" => $_POST['email'], "password" => md5($_POST['password'])));
-                        if ($LoginRes['Code'] == 1) {
-                            $_SESSION['Userdata'] = $LoginRes['Data'];
-                            // echo "<pre>";
-                            // print_r($_SESSION['Userdata']);
-                            // echo "</pre>";
-                            $name = $_SESSION['Userdata']->name;
-                            // echo $name;
-                            if ($_SESSION['Userdata']->roll_id == 1) {
-                                echo "<script>
-                                alert(`Hello $name`);
-                                window.location.href='admindashboard';
-                                </script>";
-                            } else {
-                                echo "<script>
-                                alert(`Hello $name`);
-                                window.location.href='home';
-                                </script>";
+                        if ($_POST['email'] != ""  && $_POST['password'] != "") {
+
+                            $LoginRes = $this->Select("users", array("email" => $_POST['email'], "password" => md5($_POST['password'])));
+                            if ($LoginRes['Code'] == 1) {
+                                $_SESSION['Userdata'] = $LoginRes['Data'];
+                                // echo "<pre>";
+                                // print_r($_SESSION['Userdata']);
+                                // echo "</pre>";
+                                $name = $_SESSION['Userdata']->name;
+                                // echo $name;
+                                if ($_SESSION['Userdata']->roll_id == 1) {
+                                    echo "<script>
+                                    alert(`Hello $name`);
+                                    window.location.href='admindashboard';
+                                    </script>";
+                                } else {
+                                    echo "<script>
+                                    alert(`Hello $name`);
+                                    window.location.href='home';
+                                    </script>";
+                                }
                             }
-                            
+                        } else {
+                            echo "<script>
+                            alert(`Enter Valid Email And Password`);
+                           
+                            </script>";
                         }
                     }
                     break;

@@ -29,7 +29,7 @@ class Controller extends Model
                     include_once("View/footer.php");
                     break;
                 case '/login':
-                    echo "login page";
+                    include_once("View/login.php");
                     break;
                 case '/register':
                     include_once("View/register.php");

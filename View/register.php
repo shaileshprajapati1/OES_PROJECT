@@ -92,7 +92,7 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-12 control-label" for="name"></label>
+                        <label class="col-md-12 control-label" for="college"></label>
                         <div class="col-md-12">
                             <input id="college" name="college" placeholder="Enter your college name" class="form-control input-md" type="text">
 

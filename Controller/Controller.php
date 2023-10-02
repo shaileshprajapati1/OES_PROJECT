@@ -32,10 +32,20 @@ class Controller extends Model
                     include_once("View/register.php");
                     if (isset($_POST['register'])) {
                         array_pop($_POST);
+                        $password = md5($_POST['password']);
+                        $cpassword = md5($_POST['cpassword']);
                         array_pop($_POST);
+                        // echo $cpassword;
 
+                        unset($_POST['password']);
+                        $data = array_merge($_POST, array('password' => $password));
+                        // echo "<pre>";
+                        // print_r($data);
+                        // echo "</pre>";
+
+                        $InsertRes = $this->Insert("users", $data);
                         echo "<pre>";
-                        print_r($_POST);
+                        print_r($InsertRes);
                         echo "</pre>";
                     }
                     break;

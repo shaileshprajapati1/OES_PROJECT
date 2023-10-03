@@ -1,8 +1,6 @@
 <div id="page-wrapper">
     <div class="main-page">
-        <div class="d-flex align-items-end">
-            <a href="add" class="btn btn-success ">Add User</a>
-        </div>
+        <a href="add" class="btn btn-success ">Add User</a>
         <table class="table table-striped table-dark">
             <thead>
                 <tr>

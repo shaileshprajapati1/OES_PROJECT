@@ -1,14 +1,18 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<?php
+
+// echo "<pre>";
+// print_r($_SESSION['Userdata']);
+// echo "</pre>";
+if(!isset($_SESSION['Userdata'])){
+    header("location:login");
+}
+
+?>
 <!DOCTYPE HTML>
 <html>
 
 <head>
-    <title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <title> Admin Panel </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -68,16 +72,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html" class="active"><i class="fa fa-home nav_icon"></i>Dashboard</a>
+                            <a href="admindashboard" class="active"><i class="fa fa-home nav_icon"></i>Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-users nav_icon"></i>Users <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
-                                    <a href="showall">All Users</a>
+                                    <a href="showall"><i class="fa fa-users"></i>  All Users</a>
                                 </li>
                                 <li>
-                                    <a href="add">Add User</a>
+                                    <a href="add"><i class="fa fa-user"></i>  Add User</a>
                                 </li>
                             </ul>
 
@@ -97,7 +101,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 <!--toggle button end-->
                 <!--logo -->
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="admindashboard">
                         <h1>E-Progress</h1>
                         <span>AdminPanel</span>
                     </a>
@@ -125,7 +129,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <div class="profile_img">
                                     <span class="prfil-img"><img src="images/a.png" alt=""> </span>
                                     <div class="user-name">
-                                        <p>Wikolia</p>
+                                        <p><?php echo $_SESSION['Userdata']->name; ?></p>
                                         <span>Administrator</span>
                                     </div>
                                     <i class="fa fa-angle-down lnr"></i>
@@ -134,9 +138,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </a>
                             <ul class="dropdown-menu drp-mnu">
-                                <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
+                                <!-- <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> -->
                                 <li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
-                                <li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                                <li> <a href="logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
                             </ul>
                         </li>
                     </ul>

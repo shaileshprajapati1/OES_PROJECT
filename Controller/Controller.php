@@ -29,6 +29,11 @@ class Controller extends Model
                     include_once("View/contact.php");
                     include_once("View/footer.php");
                     break;
+                case '/showall':
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/showall.php");
+                    include_once("View/Admin/footer_admin.php");
+                    break;
                 case '/admindashboard':
                     include_once("View/Admin/header_admin.php");
                     include_once("View/Admin/dashboard.php");

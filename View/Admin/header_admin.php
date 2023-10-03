@@ -129,7 +129,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <div class="profile_img">
                                     <span class="prfil-img"><img src="images/a.png" alt=""> </span>
                                     <div class="user-name">
-                                        <p><?php echo $_SESSION['Userdata']->name; ?></p>
+                                        <p><?php echo $_SESSION['Userdata'][0]->name; ?></p>
                                         <span>Administrator</span>
                                     </div>
                                     <i class="fa fa-angle-down lnr"></i>

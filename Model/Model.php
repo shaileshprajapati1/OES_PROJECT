@@ -56,7 +56,7 @@ class Model
         $SQLEx = $this->connection->query($SQL);
         if ($SQLEx->num_rows > 0) {
             while ($data = $SQLEx->fetch_object()) {
-                $FetchData = $data;
+                $FetchData[] = $data;
             }
             $Responce['Code'] = "1";
             $Responce['Msg'] = "Msg";

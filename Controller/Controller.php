@@ -30,6 +30,10 @@ class Controller extends Model
                     include_once("View/footer.php");
                     break;
                 case '/showall':
+                    $Showall = $this->Select("users",array("roll_id"=>"2"));
+                    // echo "<pre>";
+                    // print_r($Showall);
+                    // echo "</pre>";
                     include_once("View/Admin/header_admin.php");
                     include_once("View/Admin/showall.php");
                     include_once("View/Admin/footer_admin.php");
@@ -50,14 +54,18 @@ class Controller extends Model
                         if ($_POST['email'] != ""  && $_POST['password'] != "") {
 
                             $LoginRes = $this->Select("users", array("email" => $_POST['email'], "password" => md5($_POST['password'])));
-                            if ($LoginRes['Code'] == 1) {
+                            // echo "<pre>";
+                            // print_r($LoginRes['Data'][0]->name);
+                            // echo "</pre>";
+                            if ($LoginRes['Code'][0] == 1) {
                                 $_SESSION['Userdata'] = $LoginRes['Data'];
-                                // echo "<pre>";
-                                // print_r($_SESSION['Userdata']);
-                                // echo "</pre>";
-                                $name = $_SESSION['Userdata']->name;
+                                echo "<pre>";
+                                print_r($_SESSION['Userdata']);
+                                echo "</pre>";
+                                $name = $_SESSION['Userdata'][0]->name;
                                 // echo $name;
-                                if ($_SESSION['Userdata']->roll_id == 1) {
+                            
+                                if ($_SESSION['Userdata'][0]->roll_id == 1) {
                                     echo "<script>
                                     alert(`Hello $name`);
                                     window.location.href='admindashboard';

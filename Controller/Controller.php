@@ -30,7 +30,9 @@ class Controller extends Model
                     include_once("View/footer.php");
                     break;
                 case '/admindashboard':
-                    echo "adminpage";
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/dashboard.php");
+                    include_once("View/Admin/footer_admin.php");
                     break;
                 case '/logout':
                     session_destroy();

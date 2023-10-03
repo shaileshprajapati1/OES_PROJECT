@@ -8,7 +8,7 @@
 <html lang="en">
 <!-- Head -->
 <head>
-<title>E-progress an Education Category Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>E-progress an Education </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="keywords" content="E-progress a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 

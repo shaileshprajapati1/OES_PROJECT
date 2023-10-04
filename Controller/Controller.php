@@ -2,6 +2,7 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Kolkata');
+
 require("Model/Model.php");
 
 class Controller extends Model
@@ -10,8 +11,12 @@ class Controller extends Model
     function __construct()
     {
         parent::__construct();
-        $this->URL = "http://localhost/oes_project/Public/";
-
+        if ($_SERVER['HTTP_HOST'] == "localhost") {
+            $this->URL = "http://localhost/oes_project/Public/";
+        } else {
+            $this->URL = "https://" . $_SERVER['HTTP_HOST'] . "/Public/";
+        }
+        // print_r($_SERVER);
         if (isset($_SERVER['PATH_INFO'])) {
             switch ($_SERVER['PATH_INFO']) {
                 case '/home':
@@ -30,7 +35,7 @@ class Controller extends Model
                     include_once("View/footer.php");
                     break;
                 case '/showall':
-                    $Showall = $this->Select("users",array("roll_id"=>"2"));
+                    $Showall = $this->Select("users", array("roll_id" => "2"));
                     // echo "<pre>";
                     // print_r($Showall);
                     // echo "</pre>";
@@ -59,12 +64,12 @@ class Controller extends Model
                             // echo "</pre>";
                             if ($LoginRes['Code'][0] == 1) {
                                 $_SESSION['Userdata'] = $LoginRes['Data'];
-                                echo "<pre>";
-                                print_r($_SESSION['Userdata']);
-                                echo "</pre>";
+                                // echo "<pre>";
+                                // print_r($_SESSION['Userdata']);
+                                // echo "</pre>";
                                 $name = $_SESSION['Userdata'][0]->name;
                                 // echo $name;
-                            
+
                                 if ($_SESSION['Userdata'][0]->roll_id == 1) {
                                     echo "<script>
                                     alert(`Hello $name`);
@@ -137,5 +142,6 @@ class Controller extends Model
 }
 
 $Contoller = new Controller;
+
 
 ?>

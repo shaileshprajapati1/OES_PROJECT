@@ -50,7 +50,7 @@ class Controller extends Model
                     break;
                 case '/logout':
                     session_destroy();
-                    header("location:login");
+                    header("location:home");
                     break;
                 case '/login':
                     include_once("View/login.php");

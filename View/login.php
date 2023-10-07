@@ -14,25 +14,25 @@
         <h3 class="text-center mt-5">Login Form</h3>
         <form method="post">
             <div class="row mt-2">
-                <div class="col-sm-6 col-md-8 offset-2">
+                <div class="col-sm-5 col-md-6  offset-2">
                     <label for="eamil" class="lable-control">Email</label>
                     <input type="eamil" name="email" id="email" class="form-control">
                 </div>
             </div>
             <div class="row mt-2">
-                <div class="col-sm-6 col-md-8 offset-2">
+                <div class="col-sm-5 col-md-6 offset-2">
                     <label for="password" class="lable-control">Passwrod</label>
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
             </div>
             <div class="row mt-2">
-                <div class="col-sm-6 col-md-8 offset-5">
+                <div class="col-sm-5 col-md-6 offset-4">
                     <input type="submit" value="SIGN IN" name="login" id="login" class="btn btn-success">
                 </div>
             </div>
         </form>
         <div class="row mt-2">
-            <div class="col-sm-6 col-md-8 offset-4">
+            <div class="col-sm-5 col-md-6 offset-3">
                 <a href="register">Click Here To Registration</a>
             </div>
         </div>

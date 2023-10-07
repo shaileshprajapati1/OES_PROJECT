@@ -19,6 +19,7 @@ class Controller extends Model
         // print_r($_SERVER);
         if (isset($_SERVER['PATH_INFO'])) {
             switch ($_SERVER['PATH_INFO']) {
+
                 case '/home':
                     include_once("View/header.php");
                     include_once("View/homepage.php");
@@ -50,7 +51,11 @@ class Controller extends Model
                     break;
                 case '/logout':
                     session_destroy();
-                    header("location:home");
+                    echo " <script>
+                    alert('Logout Success')
+                    window.location.href='home';
+                     </script>";
+                    // header("location:home");
                     break;
                 case '/login':
                     include_once("View/login.php");
@@ -62,15 +67,17 @@ class Controller extends Model
                             // echo "<pre>";
                             // print_r($LoginRes['Data'][0]->name);
                             // echo "</pre>";
+
+
+                            $_SESSION['Userdata'] = $LoginRes['Data'];
                             if ($LoginRes['Code'][0] == 1) {
-                                $_SESSION['Userdata'] = $LoginRes['Data'];
                                 // echo "<pre>";
-                                // print_r($_SESSION['Userdata']);
+                                // print_r($LoginRes['Code'][0]);
                                 // echo "</pre>";
                                 $name = $_SESSION['Userdata'][0]->name;
                                 // echo $name;
 
-                                if ($_SESSION['Userdata'][0]->roll_id == 1) {
+                                if ($LoginRes['Data'][0]->roll_id == 1) {
                                     echo "<script>
                                     alert(`Hello $name`);
                                     window.location.href='admindashboard';

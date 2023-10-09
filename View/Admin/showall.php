@@ -89,8 +89,9 @@
                             <td>
 
                                 <a href="edit?id=<?php echo $value->id; ?>" class="btn btn-primary">Edit</a> &nbsp;
-                                <a href="delete?id=<?php echo $value->id; ?>" class="btn btn-danger">Delete</a>
-
+                                <?php if ($value->is_deleted == 1) { ?>
+                                    <a href="delete?id=<?php echo $value->id; ?>" class="btn btn-danger">Delete</a>
+                                <?php } ?>
                             </td>
                             <td>
                                 <?php if ($value->is_deleted == 0) { ?>

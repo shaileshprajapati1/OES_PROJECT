@@ -35,6 +35,11 @@ class Controller extends Model
                     include_once("View/contact.php");
                     include_once("View/footer.php");
                     break;
+                case '/edit':
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/edit.php");
+                    include_once("View/Admin/footer_admin.php");
+                    break;
                 case '/showall':
                     $Showall = $this->Select("users", array("roll_id" => "2"));
                     // echo "<pre>";

@@ -3,7 +3,7 @@
 // echo "<pre>";
 // print_r($_SESSION['Userdata']);
 // echo "</pre>";
-if(!isset($_SESSION['Userdata'])){
+if (!isset($_SESSION['Userdata'])) {
     header("location:login");
 }
 
@@ -28,6 +28,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     </script>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo $this->URL; ?>Admin/css/bootstrap.css" rel='stylesheet' type='text/css' />
+
     <!-- Custom CSS -->
     <link href="<?php echo $this->URL; ?>Admin/css/style.css" rel='stylesheet' type='text/css' />
     <!-- font CSS -->
@@ -75,14 +76,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             <a href="admindashboard" class="active"><i class="fa fa-home nav_icon"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users nav_icon"></i>Users <span class="fa arrow"></span></a>
+                            <a href="javascript:history.go(-1)"><i class="fa fa-users nav_icon"></i>Users <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
-                                    <a href="showall"><i class="fa fa-users"></i>  All Users</a>
+                                    <a href="showall"><i class="fa fa-users"></i> All Users</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="add"><i class="fa fa-user"></i>  Add User</a>
-                                </li>
+                                </li> -->
                             </ul>
 
                         </li>
@@ -121,7 +122,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 <div class="clearfix"> </div>
             </div>
             <div class="header-right">
-              
+
                 <div class="profile_details">
                     <ul>
                         <li class="dropdown profile_details_drop">

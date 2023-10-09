@@ -35,10 +35,46 @@ class Controller extends Model
                     include_once("View/contact.php");
                     include_once("View/footer.php");
                     break;
+                case '/delete':
+                    //    echo "hello";
+                    $Deleteshowres = $this->Select("users", array("is_deleted" => "0"));
+                    // echo "<pre>";
+                    // print_r($Deleteshowres['Data'][0]->is_deleted == 0);
+                    // echo "</pre>";
+                    if ($Deleteshowres['Data'][0]->is_deleted == 0) {
+                        // echo "active";
+                        $updateuser = $this->Update("users", array("is_deleted" => 1), array("id" => $_GET['id']));
+                        // echo "<pre>";
+                        // print_r($updateuser);
+                        // echo "</pre>";
+                    } else {
+                        // echo "inactive";
+                        $updateuser = $this->Update("users", array("is_deleted" => 0), array("id" => $_GET['id']));
+                        // echo "<pre>";
+                        // print_r($updateuser);
+                        // echo "</pre>";
+                    }
+
+                    break;
                 case '/edit':
+                    $Selectbyid = $this->Select("users", array("id" => $_GET['id'], "roll_id" => "2"));
+
                     include_once("View/Admin/header_admin.php");
                     include_once("View/Admin/edit.php");
                     include_once("View/Admin/footer_admin.php");
+                    if (isset($_POST['update'])) {
+                        array_pop($_POST);
+
+                        $data = $_POST;
+                        $UpdateRes = $this->Update("users", $data, array("id" => $_GET['id']));
+
+                        if ($UpdateRes['Code'] == 1) {
+                            echo " <script>
+                            alert('Recode Update Success')
+                            window.location.href='showall';
+                             </script>";
+                        }
+                    }
                     break;
                 case '/showall':
                     $Showall = $this->Select("users", array("roll_id" => "2"));

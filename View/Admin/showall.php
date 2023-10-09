@@ -85,10 +85,15 @@
                             <td><?php echo $value->mob; ?></td>
                             <td><?php echo $value->college; ?></td>
                             <td>
-                             
-                                <a href="edit?id=<?php echo $value->id; ?>" class="btn btn-primary">Edit</a> &nbsp;
 
-                                <a href="delete?id=<?php echo $value->id; ?>" class="btn btn-danger">Delete</a>
+                                <a href="edit?id=<?php echo $value->id; ?>" class="btn btn-primary">Edit</a> &nbsp;
+                                <?php if ($value->is_deleted == 0) { ?>
+                                    <a href="delete?id=<?php echo $value->id; ?>&is_deleted=<?php echo $value->is_deleted; ?>" class="btn btn-danger">Delete</a>
+
+                                <?php  }  else { ?>
+
+                              <?php  }  ?>
+
 
                             </td>
                         </tr>

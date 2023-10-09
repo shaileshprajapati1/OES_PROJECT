@@ -69,6 +69,39 @@ class Model
         return $Responce;
     }
     //Select Function End
+
+    //Update Function Start
+    function Update($tbl, $data, $where)
+    {
+        $SQL = "UPDATE $tbl SET ";
+
+        foreach ($data as $key => $value) {
+            $SQL .= " $key = '$value' ,";
+        }
+        $SQL = rtrim($SQL, ",");
+        $SQL .= "WHERE";
+
+        foreach ($where as $key => $value) {
+            $SQL .= " $key = '$value' AND";
+        }
+        $SQL = rtrim($SQL, "AND");
+
+        // echo $SQL;
+        $SQLEx = $this->connection->query($SQL);
+        if ($SQLEx > 0) {
+           
+            $Responce['Code'] = "1";
+            $Responce['Msg'] = "Msg";
+            $Responce['Data'] = "1";
+        } else {
+            $Responce['Code'] = "0";
+            $Responce['Msg'] = "Try Again";
+            $Responce['Data'] = "0";
+        }
+        return $Responce;
+    }
+
+    //Update Function End
 }
 
 ?>

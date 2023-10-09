@@ -188,7 +188,9 @@ class Controller extends Model
                     break;
             }
         } else {
-            header("location:home");
+            echo " <script>
+            window.location.href ='home'
+            </script>";
         }
     }
 }

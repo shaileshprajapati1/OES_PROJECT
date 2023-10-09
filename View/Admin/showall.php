@@ -67,6 +67,7 @@
                     <th>PHONE</th>
                     <th>COLLAGE</th>
                     <th>ACTION</th>
+                    <th>STATUS</th>
                 </tr>
             </thead>
             <tbody>
@@ -79,6 +80,7 @@
                     foreach ($Showall['Data'] as $key => $value) {
                         $i++; ?>
                         <tr>
+
                             <td><?php echo $i; ?></td>
                             <td><?php echo $value->name; ?></td>
                             <td><?php echo $value->email; ?></td>
@@ -87,13 +89,18 @@
                             <td>
 
                                 <a href="edit?id=<?php echo $value->id; ?>" class="btn btn-primary">Edit</a> &nbsp;
+                                <a href="delete?id=<?php echo $value->id; ?>" class="btn btn-danger">Delete</a>
+
+                            </td>
+                            <td>
                                 <?php if ($value->is_deleted == 0) { ?>
-                                    <a href="delete?id=<?php echo $value->id; ?>&is_deleted=<?php echo $value->is_deleted; ?>" class="btn btn-danger">Delete</a>
+                                    <!-- echo "Active"; -->
+                                    <a href="status?id=<?php echo $value->id; ?>&is_deleted=0" class="btn btn-success">Active</a>&nbsp;
+                                <?php  } else { ?>
+                                    <!-- echo "Inactive"; -->
+                                    <a href="status?id=<?php echo $value->id; ?>&is_deleted=1" class="btn btn-danger">Inactive</a>
 
-                                <?php  }  else { ?>
-
-                              <?php  }  ?>
-
+                                <?php  } ?>
 
                             </td>
                         </tr>

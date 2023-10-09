@@ -35,24 +35,38 @@ class Controller extends Model
                     include_once("View/contact.php");
                     include_once("View/footer.php");
                     break;
+                case '/status':
+                    //    echo "hello";
+                    $SatusRes = $this->Select("users", array("is_deleted" =>$_GET['is_deleted']));
+                      
+                        if ($SatusRes['Data'][0]->is_deleted == 0) {
+                            $updateuser = $this->Update("users", array("is_deleted" => 1), array("id" => $_GET['id']));
+                            header("location:showall");
+                        } else {
+                            $updateuser = $this->Update("users", array("is_deleted" => 0), array("id" => $_GET['id']));
+                            header("location:showall");
+                        }
+                    
+
+                    break;
                 case '/delete':
                     //    echo "hello";
                     $Deleteshowres = $this->Select("users", array("is_deleted" => "0"));
                     // echo "<pre>";
                     // print_r($Deleteshowres['Data'][0]->is_deleted == 0);
                     // echo "</pre>";
-                    if ($Deleteshowres['Data'][0]->is_deleted == 0) {
-                        // echo "active";
-                        $updateuser = $this->Update("users", array("is_deleted" => 1), array("id" => $_GET['id']));
-                        // echo "<pre>";
-                        // print_r($updateuser);
-                        // echo "</pre>";
+                    if ($Deleteshowres['Code'] == 1) {
+
+                        if ($Deleteshowres['Data'][0]->is_deleted == 0) {
+                            $updateuser = $this->Update("users", array("is_deleted" => 1), array("id" => $_GET['id']));
+                        
+                        } else {
+                            $updateuser = $this->Update("users", array("is_deleted" => 0), array("id" => $_GET['id']));
+                        }
                     } else {
-                        // echo "inactive";
-                        $updateuser = $this->Update("users", array("is_deleted" => 0), array("id" => $_GET['id']));
-                        // echo "<pre>";
-                        // print_r($updateuser);
-                        // echo "</pre>";
+                        echo " <script>
+                        window.location.href='showall';
+                         </script>";
                     }
 
                     break;

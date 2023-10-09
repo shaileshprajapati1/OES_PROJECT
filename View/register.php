@@ -113,7 +113,7 @@
                     <div class="form-group">
                         <label class="col-md-12 control-label" for="mob"></label>
                         <div class="col-md-12">
-                            <input id="mob" name="mob" placeholder="Enter your mobile number" class="form-control input-md" type="number">
+                            <input id="mob" name="mob" placeholder="Enter your mobile number" class="form-control input-md" type="tel">
 
                         </div>
                     </div>

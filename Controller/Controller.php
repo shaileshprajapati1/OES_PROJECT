@@ -37,37 +37,27 @@ class Controller extends Model
                     break;
                 case '/status':
                     //    echo "hello";
-                    $SatusRes = $this->Select("users", array("is_deleted" =>$_GET['is_deleted']));
-                      
-                        if ($SatusRes['Data'][0]->is_deleted == 0) {
-                            $updateuser = $this->Update("users", array("is_deleted" => 1), array("id" => $_GET['id']));
-                            header("location:showall");
-                        } else {
-                            $updateuser = $this->Update("users", array("is_deleted" => 0), array("id" => $_GET['id']));
-                            header("location:showall");
-                        }
-                    
+                    $SatusRes = $this->Select("users", array("is_deleted" => $_GET['is_deleted']));
+
+                    if ($SatusRes['Data'][0]->is_deleted == 0) {
+                        $updateuser = $this->Update("users", array("is_deleted" => 1), array("id" => $_GET['id']));
+                        header("location:showall");
+                    } else {
+                        $updateuser = $this->Update("users", array("is_deleted" => 0), array("id" => $_GET['id']));
+                        header("location:showall");
+                    }
+
 
                     break;
                 case '/delete':
-                    //    echo "hello";
-                    $Deleteshowres = $this->Select("users", array("is_deleted" => "0"));
-                    // echo "<pre>";
-                    // print_r($Deleteshowres['Data'][0]->is_deleted == 0);
-                    // echo "</pre>";
-                    if ($Deleteshowres['Code'] == 1) {
-
-                        if ($Deleteshowres['Data'][0]->is_deleted == 0) {
-                            $updateuser = $this->Update("users", array("is_deleted" => 1), array("id" => $_GET['id']));
-                        
-                        } else {
-                            $updateuser = $this->Update("users", array("is_deleted" => 0), array("id" => $_GET['id']));
-                        }
-                    } else {
+                    $DeleteRes = $this->Delete("users", array("id" => $_GET['id']));
+                    if ($DeleteRes['Code'] == 1) {
                         echo " <script>
-                        window.location.href='showall';
-                         </script>";
+                    alert('Delete Update Success')
+                    window.location.href='showall';
+                     </script>";
                     }
+
 
                     break;
                 case '/edit':
@@ -167,28 +157,28 @@ class Controller extends Model
                         // print_r($data);
                         // echo "</pre>";
                         $Emailcheck = $this->Select("users", array("email" => $_POST['email']));
-                        // echo "<pre>";
-                        // print_r($Emailcheck['Data']->email);
-                        // echo "</pre>";
 
-                        if ($Emailcheck['Data']->email != $_POST['email']) {
+                        if (isset($Emailcheck['Data'])) {
 
-                            $InsertRes = $this->Insert("users", $data);
-                            // echo "<pre>";
-                            // print_r($InsertRes);
-                            // echo "</pre>";
-                            if ($InsertRes['Code'] == 1) {
+                            if ($Emailcheck['Data'][0]->email != $_POST['email']) {
+
+                                $InsertRes = $this->Insert("users", $data);
+                                // echo "<pre>";
+                                // print_r($InsertRes);
+                                // echo "</pre>";
+                                if ($InsertRes['Code'] == 1) {
+                                    echo " <script>
+                                    alert('Registration Success')
+                                    window.location.href ='login'
+                                    </script>";
+                                }
+                            } else {
+
                                 echo " <script>
-                                alert('Registration Success')
-                                window.location.href ='login'
+                                alert('Email Already Register')
+                               
                                 </script>";
                             }
-                        } else {
-
-                            echo " <script>
-                            alert('Email Already Register')
-                           
-                            </script>";
                         }
                     }
                     break;

@@ -81,9 +81,23 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
                                     <a href="showall"><i class="fa fa-users"></i> All Users</a>
                                 </li>
-                                <!-- <li>
-                                    <a href="add"><i class="fa fa-user"></i>  Add User</a>
-                                </li> -->
+                               
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="javascript:history.go(-1)"><i class="fa fa-question-circle" aria-hidden="true"></i>  Quiz <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="category"> Category</a>
+                                </li>
+                                <li>
+                                    <a href="quiz"> Quiz</a>
+                                </li>
+                                <li>
+                                    <a href="questions"> Questions</a>
+                                </li>
+                               
                             </ul>
 
                         </li>

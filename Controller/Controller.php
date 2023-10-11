@@ -36,22 +36,37 @@ class Controller extends Model
                     include_once("View/footer.php");
                     break;
                 case '/viewcategory':
+                    $ViewcategoryRes = $this->Select("category");
+                    // echo "<pre>";
+                    // print_r($ViewcategoryRes);
+                    // echo "</pre>";
                     include_once("View/Admin/header_admin.php");
-                    include_once("View/Admin/quiz/viewallcategory.php");
+                    include_once("View/Admin/quiz/category/viewallcategory.php");
                     include_once("View/Admin/header_admin.php");
-                    
+
                     break;
                 case '/addcategory':
                     include_once("View/Admin/header_admin.php");
-                    include_once("View/Admin/quiz/addcategory.php");
+                    include_once("View/Admin/quiz/category/addcategory.php");
                     include_once("View/Admin/header_admin.php");
                     if (isset($_POST['category'])) {
                         array_pop($_POST);
 
                         $CategoryRes = $this->Insert("category", $_POST);
-                        echo "<pre>";
-                        print_r($CategoryRes);
-                        echo "</pre>";
+                        // echo "<pre>";
+                        // print_r($CategoryRes);
+                        // echo "</pre>";
+                        if ($CategoryRes['Code'] == 1) {
+                            echo " <script>
+                            alert('Category Add Success')
+                            window.location.href='viewcategory';
+                             </script>";
+                        } else{
+                            echo " <script>
+                            alert('fail')
+                            window.location.href='addcategory';
+                             </script>";
+                        }
                     }
                     break;
                 case '/status':

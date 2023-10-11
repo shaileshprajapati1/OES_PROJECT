@@ -35,65 +35,7 @@ class Controller extends Model
                     include_once("View/contact.php");
                     include_once("View/footer.php");
                     break;
-                case '/viewcategory':
-                    $ViewcategoryRes = $this->Select("category");
 
-                    include_once("View/Admin/header_admin.php");
-                    include_once("View/Admin/quiz/category/viewallcategory.php");
-                    include_once("View/Admin/header_admin.php");
-
-                    break;
-                case '/edit_category':
-                    $ViewcategoryRes = $this->Select("category", array("id" => $_GET['id']));
-
-                    include_once("View/Admin/header_admin.php");
-                    include_once("View/Admin/quiz/category/editcategory.php");
-                    include_once("View/Admin/header_admin.php");
-                    if (isset($_POST['update_category'])) {
-                        array_pop($_POST);
-                        $UpdateCategoryRes = $this->Update("category", $_POST, array("id" => $_GET['id']));
-                        if ($UpdateCategoryRes['Code'] == 1) {
-                            echo " <script>
-                            alert('Recode Update Success')
-                            window.location.href='viewcategory';
-                             </script>";
-                        }
-                    }
-
-                    break;
-                case '/delete_category':
-                    $DeleteCategoryRes = $this->Delete("category", array("id" => $_GET['id']));
-                    if ($DeleteCategoryRes['Code'] == 1) {
-                        echo " <script>
-                    alert('Delete Update Success')
-                    window.location.href='viewcategory';
-                     </script>";
-                    }
-                    break;
-                case '/addcategory':
-                    include_once("View/Admin/header_admin.php");
-                    include_once("View/Admin/quiz/category/addcategory.php");
-                    include_once("View/Admin/header_admin.php");
-                    if (isset($_POST['category'])) {
-                        array_pop($_POST);
-
-                        $CategoryRes = $this->Insert("category", $_POST);
-                        // echo "<pre>";
-                        // print_r($CategoryRes);
-                        // echo "</pre>";
-                        if ($CategoryRes['Code'] == 1) {
-                            echo " <script>
-                            alert('Category Add Success')
-                            window.location.href='viewcategory';
-                             </script>";
-                        } else {
-                            echo " <script>
-                            alert('fail')
-                            window.location.href='addcategory';
-                             </script>";
-                        }
-                    }
-                    break;
                 case '/status':
                     //    echo "hello";
                     $SatusRes = $this->Select("users", array("is_deleted" => $_GET['is_deleted']));
@@ -141,9 +83,7 @@ class Controller extends Model
                     break;
                 case '/showall':
                     $Showall = $this->Select("users", array("roll_id" => "2"));
-                    // echo "<pre>";
-                    // print_r($Showall);
-                    // echo "</pre>";
+
                     include_once("View/Admin/header_admin.php");
                     include_once("View/Admin/showall.php");
                     include_once("View/Admin/footer_admin.php");
@@ -168,18 +108,12 @@ class Controller extends Model
                         if ($_POST['email'] != ""  && $_POST['password'] != "") {
 
                             $LoginRes = $this->Select("users", array("email" => $_POST['email'], "password" => md5($_POST['password'])));
-                            // echo "<pre>";
-                            // print_r($LoginRes['Data'][0]->name);
-                            // echo "</pre>";
-
 
                             $_SESSION['Userdata'] = $LoginRes['Data'];
                             if ($LoginRes['Code'][0] == 1) {
-                                // echo "<pre>";
-                                // print_r($LoginRes['Code'][0]);
-                                // echo "</pre>";
+
                                 $name = $_SESSION['Userdata'][0]->name;
-                                // echo $name;
+
 
                                 if ($LoginRes['Data'][0]->roll_id == 1) {
                                     echo "<script>
@@ -217,9 +151,7 @@ class Controller extends Model
 
                         unset($_POST['password']);
                         $data = array_merge($_POST, array('password' => $password));
-                        // echo "<pre>";
-                        // print_r($data);
-                        // echo "</pre>";
+
                         $Emailcheck = $this->Select("users", array("email" => $_POST['email']));
 
                         if (isset($Emailcheck['Data'])) {
@@ -227,9 +159,7 @@ class Controller extends Model
                             if ($Emailcheck['Data'][0]->email != $_POST['email']) {
 
                                 $InsertRes = $this->Insert("users", $data);
-                                // echo "<pre>";
-                                // print_r($InsertRes);
-                                // echo "</pre>";
+
                                 if ($InsertRes['Code'] == 1) {
                                     echo " <script>
                                     alert('Registration Success')
@@ -246,6 +176,67 @@ class Controller extends Model
                         }
                     }
                     break;
+
+                    // Category Switchcase Start
+                case '/viewcategory':
+                    $ViewcategoryRes = $this->Select("category");
+
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/category/viewallcategory.php");
+                    include_once("View/Admin/header_admin.php");
+
+                    break;
+                case '/edit_category':
+                    $ViewcategoryRes = $this->Select("category", array("id" => $_GET['id']));
+
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/category/editcategory.php");
+                    include_once("View/Admin/header_admin.php");
+                    if (isset($_POST['update_category'])) {
+                        array_pop($_POST);
+                        $UpdateCategoryRes = $this->Update("category", $_POST, array("id" => $_GET['id']));
+                        if ($UpdateCategoryRes['Code'] == 1) {
+                            echo " <script>
+                                alert('Recode Update Success')
+                                window.location.href='viewcategory';
+                                 </script>";
+                        }
+                    }
+
+                    break;
+                case '/delete_category':
+                    $DeleteCategoryRes = $this->Delete("category", array("id" => $_GET['id']));
+                    if ($DeleteCategoryRes['Code'] == 1) {
+                        echo " <script>
+                        alert('Delete Update Success')
+                        window.location.href='viewcategory';
+                         </script>";
+                    }
+                    break;
+                case '/addcategory':
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/category/addcategory.php");
+                    include_once("View/Admin/header_admin.php");
+                    if (isset($_POST['category'])) {
+                        array_pop($_POST);
+
+                        $CategoryRes = $this->Insert("category", $_POST);
+                       
+                        if ($CategoryRes['Code'] == 1) {
+                            echo " <script>
+                                alert('Category Add Success')
+                                window.location.href='viewcategory';
+                                 </script>";
+                        } else {
+                            echo " <script>
+                                alert('fail')
+                                window.location.href='addcategory';
+                                 </script>";
+                        }
+                    }
+                    break;
+
+                    // Category Switchcase End
 
                 default:
                     # code...

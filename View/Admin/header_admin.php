@@ -86,10 +86,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
                         </li>
                         <li>
-                            <a href="javascript:history.go(-1)"><i class="fa fa-question-circle" aria-hidden="true"></i>  Quiz <span class="fa arrow"></span></a>
+                            <a href="javascript:history.back()"><i class="fa fa-question-circle" aria-hidden="true"></i>  Quiz <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
-                                    <a href="category"> Category</a>
+                                    <a href="viewcategory"> Category</a>
                                 </li>
                                 <li>
                                     <a href="quiz"> Quiz</a>

@@ -35,6 +35,25 @@ class Controller extends Model
                     include_once("View/contact.php");
                     include_once("View/footer.php");
                     break;
+                case '/viewcategory':
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/viewallcategory.php");
+                    include_once("View/Admin/header_admin.php");
+                    
+                    break;
+                case '/addcategory':
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/addcategory.php");
+                    include_once("View/Admin/header_admin.php");
+                    if (isset($_POST['category'])) {
+                        array_pop($_POST);
+
+                        $CategoryRes = $this->Insert("category", $_POST);
+                        echo "<pre>";
+                        print_r($CategoryRes);
+                        echo "</pre>";
+                    }
+                    break;
                 case '/status':
                     //    echo "hello";
                     $SatusRes = $this->Select("users", array("is_deleted" => $_GET['is_deleted']));

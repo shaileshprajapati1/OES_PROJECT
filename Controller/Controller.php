@@ -133,6 +133,11 @@ class Controller extends Model
                                     window.location.href='home';
                                     </script>";
                                 }
+                            } else {
+                                echo "<script>
+                                alert(`Invalid User`);
+                               
+                                </script>";
                             }
                         } else {
                             echo "<script>

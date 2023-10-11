@@ -37,13 +37,38 @@ class Controller extends Model
                     break;
                 case '/viewcategory':
                     $ViewcategoryRes = $this->Select("category");
-                    // echo "<pre>";
-                    // print_r($ViewcategoryRes);
-                    // echo "</pre>";
+
                     include_once("View/Admin/header_admin.php");
                     include_once("View/Admin/quiz/category/viewallcategory.php");
                     include_once("View/Admin/header_admin.php");
 
+                    break;
+                case '/edit_category':
+                    $ViewcategoryRes = $this->Select("category", array("id" => $_GET['id']));
+
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/category/editcategory.php");
+                    include_once("View/Admin/header_admin.php");
+                    if (isset($_POST['update_category'])) {
+                        array_pop($_POST);
+                        $UpdateCategoryRes = $this->Update("category", $_POST, array("id" => $_GET['id']));
+                        if ($UpdateCategoryRes['Code'] == 1) {
+                            echo " <script>
+                            alert('Recode Update Success')
+                            window.location.href='viewcategory';
+                             </script>";
+                        }
+                    }
+
+                    break;
+                case '/delete_category':
+                    $DeleteCategoryRes = $this->Delete("category", array("id" => $_GET['id']));
+                    if ($DeleteCategoryRes['Code'] == 1) {
+                        echo " <script>
+                    alert('Delete Update Success')
+                    window.location.href='viewcategory';
+                     </script>";
+                    }
                     break;
                 case '/addcategory':
                     include_once("View/Admin/header_admin.php");
@@ -61,7 +86,7 @@ class Controller extends Model
                             alert('Category Add Success')
                             window.location.href='viewcategory';
                              </script>";
-                        } else{
+                        } else {
                             echo " <script>
                             alert('fail')
                             window.location.href='addcategory';

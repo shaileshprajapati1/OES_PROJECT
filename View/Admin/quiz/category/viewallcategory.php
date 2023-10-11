@@ -25,7 +25,7 @@
                             <td><?php echo $value->category_name; ?></td>
                             <td>
                                 <a href="edit_category?id=<?php echo $value->id; ?>" class="btn btn-success">Edit</a>&nbsp;&nbsp;
-                                <a href="delete_category?id=<?php echo $value->id; ?>" class="btn btn-danger">Delete</a>
+                                <a href="delete_category?id=<?php echo $value->id; ?>" class="btn btn-danger" onclick="return checkDelete()">Delete</a>
 
                             </td>
 
@@ -40,5 +40,12 @@
                 ?>
             </tbody>
         </table>
+
     </div>
+
 </div>
+<script language="JavaScript" type="text/javascript">
+    function checkDelete() {
+        return confirm('Are you Sure Want to Delete Data?');
+    }
+</script>

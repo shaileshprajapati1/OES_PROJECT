@@ -242,6 +242,21 @@ class Controller extends Model
 
                     // Quizpage Switchcase Start
 
+                case '/viewquizpage':
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/quizpage/viewquizpage.php");
+                    include_once("View/Admin/header_admin.php");
+                    break;
+                case '/addquiz':
+                    $ViewCategory = $this->Select("category");
+                    // echo "<pre>";
+                    // print_r($ViewCategory);
+                    // echo "</pre>";
+
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/quizpage/addquiz.php");
+                    include_once("View/Admin/header_admin.php");
+                    break;
 
 
                     // Quizpage Switchcase End

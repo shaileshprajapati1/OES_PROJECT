@@ -248,11 +248,36 @@ class Controller extends Model
                     include_once("View/Admin/quiz/quizpage/viewquizpage.php");
                     include_once("View/Admin/header_admin.php");
                     break;
+                case '/quizdelete':
+                    $QuizDeleteRes = $this->Delete("quiz", array("id" => $_GET['id']));
+                    if ($QuizDeleteRes['Code'] == 1) {
+                        echo " <script>
+                        alert('Delete Update Success')
+                        window.location.href='viewquizpage';
+                         </script>";
+                    }
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/quizpage/viewquizpage.php");
+                    include_once("View/Admin/header_admin.php");
+                    break;
                 case '/quizedit':
                     $EditquizRes = $this->Select("quiz", array("id" => $_GET['id']));
                     include_once("View/Admin/header_admin.php");
                     include_once("View/Admin/quiz/quizpage/editquiz.php");
                     include_once("View/Admin/header_admin.php");
+                    if (isset($_POST['updatequiz'])) {
+                        array_pop($_POST);
+                        // echo "<pre>";
+                        // print_r($_POST);
+                        // echo "</pre>";
+                        $QuizUpdateRes = $this->Update("quiz", $_POST, array("id" => $_GET['id']));
+                        if ($QuizUpdateRes['Code']  == 1) {
+                            echo " <script>
+                                alert('Data Update Success')
+                                window.location.href='viewquizpage';
+                                 </script>";
+                        }
+                    }
                     break;
                 case '/addquiz':
                     $ViewCategory = $this->Select("category");
@@ -266,7 +291,7 @@ class Controller extends Model
                     include_once("View/Admin/header_admin.php");
                     if (isset($_POST['addquiz'])) {
                         array_pop($_POST);
-                        
+
                         $AddquizRes = $this->Insert("quiz", $_POST);
                         if ($AddquizRes['Code'] == 1) {
                             echo " <script>
@@ -275,6 +300,23 @@ class Controller extends Model
                      </script>";
                         }
                     }
+                    break;
+
+                case '/quizstatus':
+                    //    echo "hello";
+                    $QuizStatusRes = $this->Select("quiz", array("id" => $_GET['statusid']));
+                    // echo "<pre>";
+                    // print_r($QuizStatusRes);
+                    // echo "</pre>";
+                    if ($QuizStatusRes['Data'][0]->status == 0) {
+                        $updatequizstatesRes = $this->Update("quiz", array("status" => 1), array("id" => $_GET['statusid']));
+                        header("location:viewquizpage");
+                    } else {
+                        $updatequizstatesRes = $this->Update("quiz", array("status" => 0), array("id" => $_GET['statusid']));
+                        header("location:viewquizpage");
+                    }
+
+
                     break;
 
 

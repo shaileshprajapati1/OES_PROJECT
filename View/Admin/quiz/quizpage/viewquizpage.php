@@ -40,12 +40,17 @@
                             <td><?php echo $value->description; ?></td>
                             <td>
                                 <a href="quizedit?id=<?php echo $value->id; ?>" class="btn btn-success">Edit</a>&nbsp;
-                                <a href="quizdelete?id=<?php echo $value->id; ?>" class="btn btn-danger" onclick="return checkDelete()">Delete</a>
-
+                                <?php if ($value->status == 1) { ?>
+                                    <a href="quizdelete?id=<?php echo $value->id; ?>" class="btn btn-danger" onclick="return checkDelete()">Delete</a>
+                                <?php } ?>
                             </td>
                             <td>
-                                <a href="quizstatus?statusid=<?php echo $value->status; ?>" class="btn btn-primary">Active</a>
-                                <a href="quizstatus?statusid=<?php echo $value->status; ?>"class="btn btn-danger">Inactive</a>
+                                <?php if ($value->status == 0) { ?>
+                                    <a href="quizstatus?statusid=<?php echo $value->id; ?>&status=0" class="btn btn-primary">Active</a>
+                                <?php   } else { ?>
+
+                                    <a href="quizstatus?statusid=<?php echo $value->id; ?>&status=1" class="btn btn-danger">Inactive</a>
+                                <?php   } ?>
                             </td>
 
 

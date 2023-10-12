@@ -17,7 +17,7 @@
                     <div class="col">
                         <label for="category_id" class="form-label">Category_id</label>
                         <select name="category_id" id="category_id" class="form-control">
-                            <option selected>Select Category</option>
+                            <!-- <option selected>Select Category</option> -->
                             <?php if (isset($ViewCategory['Data'])) {
                                 foreach ($ViewCategory['Data'] as $key => $value) { ?>
                                     <option value="<?php echo $value->id; ?>"><?php echo $value->category_name; ?></option>

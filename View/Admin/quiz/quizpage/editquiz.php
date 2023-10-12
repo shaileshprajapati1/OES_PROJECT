@@ -55,44 +55,42 @@
 
                     </div>
                 </div>
-                <?php if (isset($EditquizRes['Data'])) {
-                    if ($EditquizRes['Data'][0]->is_negative == "YES") { ?>
-                        <div class="row ">
-                            <div class="col">
-                                <label for="neg_mark_per_que" class="form-label">Negative_Mark </label>
-                                <select name="neg_mark_per_que" id="neg_mark_per_que" class="form-control">
-                                    <option selected>Nagative Marks per Question</option>
-                                    <option value="0.25" <?php if (isset($EditquizRes['Data'])) {
-                                                                if ($EditquizRes['Data'][0]->neg_mark_per_que == "0.25") {
-                                                                    echo "selected";
-                                                                }
-                                                            } ?>>0.25</option>
-                                    <option value="0.50" <?php if (isset($EditquizRes['Data'])) {
-                                                                if ($EditquizRes['Data'][0]->neg_mark_per_que == "0.50") {
-                                                                    echo "selected";
-                                                                }
-                                                            } ?>>0.50</option>
-                                    <option value="0.75" <?php if (isset($EditquizRes['Data'])) {
-                                                                if ($EditquizRes['Data'][0]->neg_mark_per_que == "0.75") {
-                                                                    echo "selected";
-                                                                }
-                                                            } ?>>0.75</option>
-                                    <option value="1.00" <?php if (isset($EditquizRes['Data'])) {
-                                                                if ($EditquizRes['Data'][0]->neg_mark_per_que == "1.00") {
-                                                                    echo "selected";
-                                                                }
-                                                            } ?>>1.00</option>
-                                </select>
 
-                            </div>
-                        </div>
-                <?php   }
-                } ?>
+                <div class="row ">
+                    <div class="col">
+                        <label for="neg_mark_per_que" class="form-label">Negative_Mark </label>
+                        <select name="neg_mark_per_que" id="neg_mark_per_que" class="form-control">
+                            <option selected>Nagative Marks per Question</option>
+                            <option value="0.25" <?php if (isset($EditquizRes['Data'])) {
+                                                        if ($EditquizRes['Data'][0]->neg_mark_per_que == "0.25") {
+                                                            echo "selected";
+                                                        }
+                                                    } ?>>0.25</option>
+                            <option value="0.50" <?php if (isset($EditquizRes['Data'])) {
+                                                        if ($EditquizRes['Data'][0]->neg_mark_per_que == "0.50") {
+                                                            echo "selected";
+                                                        }
+                                                    } ?>>0.50</option>
+                            <option value="0.75" <?php if (isset($EditquizRes['Data'])) {
+                                                        if ($EditquizRes['Data'][0]->neg_mark_per_que == "0.75") {
+                                                            echo "selected";
+                                                        }
+                                                    } ?>>0.75</option>
+                            <option value="1.00" <?php if (isset($EditquizRes['Data'])) {
+                                                        if ($EditquizRes['Data'][0]->neg_mark_per_que == "1.00") {
+                                                            echo "selected";
+                                                        }
+                                                    } ?>>1.00</option>
+                        </select>
+
+                    </div>
+                </div>
+
 
                 <div class="row ">
                     <div class="col">
                         <label for="description" class="form-label">Description</label><br>
-                        <textarea name="description" id="description" cols="152" rows="2" class="form-label"></textarea>
+                        <textarea name="description" id="description" cols="152" rows="2" class="form-label"><?php echo $EditquizRes['Data'][0]->description; ?></textarea>
                     </div>
                 </div>
 

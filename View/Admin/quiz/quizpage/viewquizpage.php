@@ -39,8 +39,8 @@
                             <td><?php echo $value->neg_mark_per_que; ?></td>
                             <td><?php echo $value->description; ?></td>
                             <td>
-                                <a href="edit_category?id=<?php echo $value->id; ?>" class="btn btn-success">Edit</a>&nbsp;
-                                <a href="delete_category?id=<?php echo $value->id; ?>" class="btn btn-danger" onclick="return checkDelete()">Delete</a>
+                                <a href="quizedit?id=<?php echo $value->id; ?>" class="btn btn-success">Edit</a>&nbsp;
+                                <a href="quizdelete?id=<?php echo $value->id; ?>" class="btn btn-danger" onclick="return checkDelete()">Delete</a>
 
                             </td>
                             <td>

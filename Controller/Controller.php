@@ -248,8 +248,15 @@ class Controller extends Model
                     include_once("View/Admin/quiz/quizpage/viewquizpage.php");
                     include_once("View/Admin/header_admin.php");
                     break;
+                case '/quizedit':
+                    $EditquizRes = $this->Select("quiz", array("id" => $_GET['id']));
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/quizpage/editquiz.php");
+                    include_once("View/Admin/header_admin.php");
+                    break;
                 case '/addquiz':
                     $ViewCategory = $this->Select("category");
+
                     // echo "<pre>";
                     // print_r($ViewCategory);
                     // echo "</pre>";
@@ -259,9 +266,7 @@ class Controller extends Model
                     include_once("View/Admin/header_admin.php");
                     if (isset($_POST['addquiz'])) {
                         array_pop($_POST);
-                        // echo "<pre>";
-                        // print_r($_POST);
-                        // echo "</pre>";
+                        
                         $AddquizRes = $this->Insert("quiz", $_POST);
                         if ($AddquizRes['Code'] == 1) {
                             echo " <script>

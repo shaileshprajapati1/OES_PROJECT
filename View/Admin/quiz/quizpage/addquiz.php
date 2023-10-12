@@ -8,15 +8,15 @@
 
                 <div class="row ">
                     <div class="col">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" name="name" id="name" class="form-control">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" id="title" class="form-control">
                     </div>
                 </div>
 
                 <div class="row ">
                     <div class="col">
-                        <label for="category_name" class="form-label">Category_name</label>
-                        <select name="category_name" id="category_name" class="form-control">
+                        <label for="category_id" class="form-label">Category_id</label>
+                        <select name="category_id" id="category_id" class="form-control">
                             <option selected>Select Category</option>
                             <?php if (isset($ViewCategory['Data'])) {
                                 foreach ($ViewCategory['Data'] as $key => $value) { ?>

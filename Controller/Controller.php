@@ -177,6 +177,7 @@ class Controller extends Model
                     }
                     break;
 
+
                     // Category Switchcase Start
                 case '/viewcategory':
                     $ViewcategoryRes = $this->Select("category");
@@ -221,7 +222,7 @@ class Controller extends Model
                         array_pop($_POST);
 
                         $CategoryRes = $this->Insert("category", $_POST);
-                       
+
                         if ($CategoryRes['Code'] == 1) {
                             echo " <script>
                                 alert('Category Add Success')
@@ -237,6 +238,15 @@ class Controller extends Model
                     break;
 
                     // Category Switchcase End
+
+
+                    // Quizpage Switchcase Start
+
+
+
+                    // Quizpage Switchcase End
+
+
 
                 default:
                     # code...

@@ -44,10 +44,40 @@
                         <input type="text" name="time" id="time" class="form-control">
                     </div>
                 </div>
+                <div class="row ">
+                    <div class="col">
+                        <label for="is_negative" class="form-label">Negative_Mark </label>
+                        <select name="is_negative" id="is_negative" class="form-control">
+                            <option selected>DO You Have Nagative Marking</option>
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col">
+                        <label for="neg_mark_per_que" class="form-label">Negative_Mark </label>
+                        <select name="neg_mark_per_que" id="neg_mark_per_que" class="form-control">
+                            <option selected>Nagative Marks per Question</option>
+                            <option value="0.25">0.25</option>
+                            <option value="0.50">0.50</option>
+                            <option value="0.75">0.75</option>
+                            <option value="1.00">1.00</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col">
+                        <label for="description" class="form-label">Description</label><br>
+                        <textarea name="description" id="description" cols="152" rows="2" class="form-label"></textarea>
+                    </div>
+                </div>
 
                 <div class="row ">
                     <div class="col">
-                        <button type="submit" name="category" id="category" class="btn btn-primary">Save Category</button>
+                        <button type="submit" name="addquiz" id="addquiz" class="btn btn-primary">Add Quiz</button>
                     </div>
                 </div>
         </form>

@@ -256,6 +256,12 @@ class Controller extends Model
                     include_once("View/Admin/header_admin.php");
                     include_once("View/Admin/quiz/quizpage/addquiz.php");
                     include_once("View/Admin/header_admin.php");
+                    if (isset($_POST['addquiz'])) {
+                        array_pop($_POST);
+                        echo "<pre>";
+                        print_r($_POST);
+                        echo "</pre>";
+                    }
                     break;
 
 

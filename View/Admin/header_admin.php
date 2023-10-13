@@ -34,6 +34,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <!-- font CSS -->
     <!-- font-awesome icons -->
     <link href="<?php echo $this->URL; ?>Admin/css/font-awesome.css" rel="stylesheet">
+    
     <!-- //font-awesome icons -->
     <!-- js-->
     <script src="<?php echo $this->URL; ?>Admin/js/jquery-1.11.1.min.js"></script>

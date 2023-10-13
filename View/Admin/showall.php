@@ -96,7 +96,7 @@
                             <td>
                                 <?php if ($value->is_deleted == 0) { ?>
                                     <!-- echo "Active"; -->
-                                    <a href="status?id=<?php echo $value->id; ?>&is_deleted=0" class="btn btn-success">Active</a>&nbsp;
+                                    <a href="status?id=<?php echo $value->id; ?>&is_deleted=0" class="btn btn-success">Active</a>
                                 <?php  } else { ?>
                                     <!-- echo "Inactive"; -->
                                     <a href="status?id=<?php echo $value->id; ?>&is_deleted=1" class="btn btn-danger">Inactive</a>

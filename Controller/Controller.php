@@ -252,7 +252,7 @@ class Controller extends Model
                     $QuizDeleteRes = $this->Delete("quiz", array("id" => $_GET['id']));
                     if ($QuizDeleteRes['Code'] == 1) {
                         echo " <script>
-                        alert('Delete Update Success')
+                        alert('Data Delete Success')
                         window.location.href='viewquizpage';
                          </script>";
                     }

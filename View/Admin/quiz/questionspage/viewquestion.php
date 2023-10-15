@@ -23,26 +23,25 @@
                 // print_r($Viewquizpage['Data']);
                 // echo "</pre>";
 
-                if (!empty($Viewquizpage['Data'])) {
+                if (!empty($ViewQuestionRes['Data'])) {
                     $i = 0;
-                    foreach ($Viewquizpage['Data'] as $key => $value) {
+                    foreach ($ViewQuestionRes['Data'] as $key => $value) {
                         $i++; ?>
                         <tr>
 
                             <td><?php echo $i; ?></td>
-                            <td><?php echo $value->title; ?></td>
-                            <td><?php echo $value->category_id; ?></td>
-                            <td><?php echo $value->no_questions; ?></td>
-                            <td><?php echo $value->marks_per_no_questions; ?></td>
-                            <td><?php echo $value->time; ?></td>
-                            <td><?php echo $value->is_negative; ?></td>
-                            <td><?php echo $value->neg_mark_per_que; ?></td>
+                            <td><?php echo $value->questions_name; ?></td>
+                            <td><?php echo $value->option_1; ?></td>
+                            <td><?php echo $value->option_2; ?></td>
+                            <td><?php echo $value->option_3; ?></td>
+                            <td><?php echo $value->option_4; ?></td>
+                            <td><?php echo $value->answer; ?></td>
+                            <td><?php echo $value->quiz_id; ?></td>
 
                             <td>
                                 <a href="questionedit?id=<?php echo $value->id; ?>" class="btn btn-success btn-sm">Edit</a>&nbsp;
-                                <?php if ($value->status == 1) { ?>
-                                    <a href="questiondelete?id=<?php echo $value->id; ?>" class="btn btn-danger btn-sm" onclick="return checkDelete()">Delete</a>
-                                <?php } ?>
+                                <a href="questiondelete?id=<?php echo $value->id; ?>" class="btn btn-danger btn-sm" onclick="return checkDelete()">Delete</a>
+
                             </td>
 
 

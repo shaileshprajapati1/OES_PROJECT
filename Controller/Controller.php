@@ -256,9 +256,7 @@ class Controller extends Model
                         window.location.href='viewquizpage';
                          </script>";
                     }
-                    include_once("View/Admin/header_admin.php");
-                    include_once("View/Admin/quiz/quizpage/viewquizpage.php");
-                    include_once("View/Admin/header_admin.php");
+
                     break;
                 case '/quizedit':
                     $EditquizRes = $this->Select("quiz", array("id" => $_GET['id']));
@@ -324,42 +322,71 @@ class Controller extends Model
 
                     //Question switchcase Start
 
-                    case '/viewquestion':
-                        include_once("View/Admin/header_admin.php");
-                        include_once("View/Admin/quiz/questionspage/viewquestion.php");
-                        include_once("View/Admin/header_admin.php");
-    
-                        break;
-                    case '/addquestion':
-                        $Selectquiz_id = $this->Select("quiz");
-                        
-                        include_once("View/Admin/header_admin.php");
-                        include_once("View/Admin/quiz/questionspage/addquestion.php");
-                        include_once("View/Admin/header_admin.php");
+                case '/viewquestion':
+                    $ViewQuestionRes = $this->Select("questions");
 
-                        if(isset($_POST['addquestion'])){
-                            array_pop($_POST);
-                            echo "<pre>";
-                            print_r($_POST);
-                            echo "</pre>";
-                            $QuestionAddRes = $this->Insert("questions",$_POST);
-                            if($QuestionAddRes['Code'] == 1){
-                                echo " <script>
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/questionspage/viewquestion.php");
+                    include_once("View/Admin/header_admin.php");
+
+                    break;
+                case '/addquestion':
+                    $Selectquiz_id = $this->Select("quiz");
+
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/questionspage/addquestion.php");
+                    include_once("View/Admin/header_admin.php");
+
+                    if (isset($_POST['addquestion'])) {
+                        array_pop($_POST);
+
+                        $QuestionAddRes = $this->Insert("questions", $_POST);
+                        if ($QuestionAddRes['Code'] == 1) {
+                            echo " <script>
                                 alert('Data Successfully Inserted')
                                 window.location.href='viewquestion';
                                  </script>";
-                            }
-
                         }
-    
-                        break;
-                    case '/editquestion':
-                        include_once("View/Admin/header_admin.php");
-                        include_once("View/Admin/quiz/questionspage/editquestion.php");
-                        include_once("View/Admin/header_admin.php");
-    
-                        break;
-    
+                    }
+
+                    break;
+                case '/questionedit':
+                    $EditQuestionRes = $this->Select("questions", array("id" => $_GET['id']));
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/questionspage/editquestion.php");
+                    include_once("View/Admin/header_admin.php");
+                    if (isset($_POST['updatequestion'])) {
+                        array_pop($_POST);
+                        $UpdateQuestionRes = $this->Update("questions", $_POST, array("id" => $_GET['id']));
+                        if ($UpdateQuestionRes['Code'] == 1) {
+                            echo " <script>
+                                alert('Data Successfully Updated')
+                                window.location.href='viewquestion';
+                                 </script>";
+                        }
+                    }
+
+                    break;
+                    
+                case '/questionedit':
+                    $EditQuestionRes = $this->Select("questions", array("id" => $_GET['id']));
+                    include_once("View/Admin/header_admin.php");
+                    include_once("View/Admin/quiz/questionspage/editquestion.php");
+                    include_once("View/Admin/header_admin.php");
+                    if (isset($_POST['updatequestion'])) {
+                        array_pop($_POST);
+                        $UpdateQuestionRes = $this->Update("questions", $_POST, array("id" => $_GET['id']));
+                        if ($UpdateQuestionRes['Code'] == 1) {
+                            echo " <script>
+                                alert('Data Successfully Updated')
+                                window.location.href='viewquestion';
+                                 </script>";
+                        }
+                    }
+
+                    break;
+
+
 
                     //Question switchcase End
 

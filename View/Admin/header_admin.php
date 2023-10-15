@@ -96,7 +96,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                     <a href="viewquizpage"> Quiz</a>
                                 </li>
                                 <li>
-                                    <a href="questions"> Questions</a>
+                                    <a href="viewquestion"> Questions</a>
                                 </li>
                                
                             </ul>

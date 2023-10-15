@@ -322,6 +322,46 @@ class Controller extends Model
 
                     // Quizpage Switchcase End
 
+                    //Question switchcase Start
+
+                    case '/viewquestion':
+                        include_once("View/Admin/header_admin.php");
+                        include_once("View/Admin/quiz/questionspage/viewquestion.php");
+                        include_once("View/Admin/header_admin.php");
+    
+                        break;
+                    case '/addquestion':
+                        $Selectquiz_id = $this->Select("quiz");
+                        
+                        include_once("View/Admin/header_admin.php");
+                        include_once("View/Admin/quiz/questionspage/addquestion.php");
+                        include_once("View/Admin/header_admin.php");
+
+                        if(isset($_POST['addquestion'])){
+                            array_pop($_POST);
+                            echo "<pre>";
+                            print_r($_POST);
+                            echo "</pre>";
+                            $QuestionAddRes = $this->Insert("questions",$_POST);
+                            if($QuestionAddRes['Code'] == 1){
+                                echo " <script>
+                                alert('Data Successfully Inserted')
+                                window.location.href='viewquestion';
+                                 </script>";
+                            }
+
+                        }
+    
+                        break;
+                    case '/editquestion':
+                        include_once("View/Admin/header_admin.php");
+                        include_once("View/Admin/quiz/questionspage/editquestion.php");
+                        include_once("View/Admin/header_admin.php");
+    
+                        break;
+    
+
+                    //Question switchcase End
 
 
                 default:

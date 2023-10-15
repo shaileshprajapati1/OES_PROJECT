@@ -26,6 +26,7 @@ class Model
         $val = implode("','", $data);
         $SQL = " INSERT INTO $tbl ($clm) VALUES ('$val') ";
 
+        echo $SQL;
         $SQLEx = $this->connection->query($SQL);
         if ($SQLEx > 0) {
             $Responce['Code'] = "1";

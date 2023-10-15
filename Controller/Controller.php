@@ -367,22 +367,17 @@ class Controller extends Model
                     }
 
                     break;
-                    
-                case '/questionedit':
-                    $EditQuestionRes = $this->Select("questions", array("id" => $_GET['id']));
-                    include_once("View/Admin/header_admin.php");
-                    include_once("View/Admin/quiz/questionspage/editquestion.php");
-                    include_once("View/Admin/header_admin.php");
-                    if (isset($_POST['updatequestion'])) {
-                        array_pop($_POST);
-                        $UpdateQuestionRes = $this->Update("questions", $_POST, array("id" => $_GET['id']));
-                        if ($UpdateQuestionRes['Code'] == 1) {
-                            echo " <script>
-                                alert('Data Successfully Updated')
+
+                case '/questiondelete':
+
+                    $DeleteQuestionRes = $this->Delete("questions",  array("id" => $_GET['id']));
+                    if ($DeleteQuestionRes['Code'] == 1) {
+                        echo " <script>
+                                alert('Data Delete Success')
                                 window.location.href='viewquestion';
                                  </script>";
-                        }
                     }
+
 
                     break;
 

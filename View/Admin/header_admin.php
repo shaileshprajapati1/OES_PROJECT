@@ -34,7 +34,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <!-- font CSS -->
     <!-- font-awesome icons -->
     <link href="<?php echo $this->URL; ?>Admin/css/font-awesome.css" rel="stylesheet">
-    
+
     <!-- //font-awesome icons -->
     <!-- js-->
     <script src="<?php echo $this->URL; ?>Admin/js/jquery-1.11.1.min.js"></script>
@@ -82,23 +82,40 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
                                     <a href="showall"><i class="fa fa-users"></i> All Users</a>
                                 </li>
-                               
+
                             </ul>
 
                         </li>
                         <li>
-                            <a href="javascript:history.back()"><i class="fa fa-question-circle" aria-hidden="true"></i>  Quiz <span class="fa arrow"></span></a>
+                            <a href="javascript:history.back()"><i class="fa fa-question-circle" aria-hidden="true"></i> Quiz Category <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
                                     <a href="viewcategory"> Category</a>
                                 </li>
+
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="javascript:history.back()"><i class="fa fa-question" aria-hidden="true"></i> Quiz Detail <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+
                                 <li>
                                     <a href="viewquizpage"> Quiz</a>
                                 </li>
+                               
+
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="javascript:history.back()"><i class="fa fa-question" aria-hidden="true"></i> Quiz Questions <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+
                                 <li>
                                     <a href="viewquestion"> Questions</a>
                                 </li>
-                               
+
                             </ul>
 
                         </li>

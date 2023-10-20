@@ -14,6 +14,8 @@
 <meta name="keywords" content="E-progress a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
+
+
 <!-- default css files -->
 	<link rel="stylesheet" href="<?php echo $this->URL; ?>css/bootstrap.css" type="text/css" media="all">
 	<link rel="stylesheet" href="<?php echo $this->URL; ?>css/style.css" type="text/css" media="all">

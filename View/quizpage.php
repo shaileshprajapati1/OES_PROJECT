@@ -35,7 +35,9 @@
                     <div class="card m-5 p-3">
                         <div class="card-body">
                             <h3 class="card-title py-2">Start taking Quiz</h3>
-                            <a href="quiz.php" class="btn btn-warning m-2">Start the Quiz</a>
+                        
+                            
+                          </form>
                         </div>
                     </div>
                 </div>

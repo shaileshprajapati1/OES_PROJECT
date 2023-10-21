@@ -6,11 +6,14 @@
 	<div class="container">
 		<div class="col-md-5 bannergrid">
 			<div class="top">
+
 				<?php
 
 				if (isset($_SESSION['Userdata'])) {  ?>
 
 					<a href="quizpage" class="btn btn-warning m-2">Start the Quiz</a>
+				<?php	} else { ?>
+					<a href="login" class="btn btn-success">Click here to take Quiz</a>
 				<?php	}
 				?>
 			</div>

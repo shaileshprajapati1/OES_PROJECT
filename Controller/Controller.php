@@ -25,6 +25,11 @@ class Controller extends Model
                     include_once("View/homepage.php");
                     include_once("View/footer.php");
                     break;
+                case '/home':
+                    include_once("View/header.php");
+                    include_once("View/homepage.php");
+                    include_once("View/footer.php");
+                    break;
                 case '/quizpage':
                         include_once("View/quizpage.php");
                     break;

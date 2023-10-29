@@ -56,9 +56,9 @@ class Controller extends Model
                         // print_r($_SESSION['score']);
                         header("location:result");
                     } else {
-                        $_SESSION['attempted'] = 0;
-                        $_SESSION['score'] = 0;
-                        header("location:result");
+                        // $_SESSION['attempted'] = 0;
+                        // $_SESSION['score'] = 0;
+                        // header("location:result");
                     }
                     break;
                 case '/about':
@@ -146,12 +146,14 @@ class Controller extends Model
                             $LoginRes = $this->Select("users", array("email" => $_POST['email'], "password" => md5($_POST['password'])));
 
                             $_SESSION['Userdata'] = $LoginRes['Data'];
+
                             if ($LoginRes['Code'][0] == 1) {
 
                                 $name = $_SESSION['Userdata'][0]->name;
-
+                                $_SESSION['msg'] = "Welcome to Dashboard";
 
                                 if ($LoginRes['Data'][0]->roll_id == 1) {
+
                                     echo "<script>
                                     alert(`Hello $name`);
                                     window.location.href='admindashboard';

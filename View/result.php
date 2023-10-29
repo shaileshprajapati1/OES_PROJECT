@@ -46,7 +46,8 @@
                                 <button class="btn btn-warning">You Score is : <?php echo $_SESSION['score']; ?></button>
                             </div>
                         </div>
-                    <?php } else { ?>
+
+                    <?php   } else { ?>
                         <div class="card my-2 p-3 text-center">
                             <div class="card-body">
                                 <h5 class="card-title py-2 text-center">You have attempted <?php echo $_SESSION['attempted']; ?> out of <?php echo count($totalquestion['Data']); ?></h5>

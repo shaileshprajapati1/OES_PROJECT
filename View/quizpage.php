@@ -1,10 +1,13 @@
 <!-- Coded by https://beproblemsolver.com  Visit for more such code -->
+
+
 <?php
 
-// if (!isset($_SESSION['login_active'])) {
-//     header("Location: index.php");
-//     exit();
-// }
+
+if (!isset($_SESSION['Userdata'])) {
+    header("location:login");
+}
+
 ?>
 
 <!DOCTYPE html>

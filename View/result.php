@@ -1,5 +1,12 @@
 <!-- Coded by https://beproblemsolver.com  Visit for more such code -->
+<?php
 
+
+if (!isset($_SESSION['Userdata'])) {
+    header("location:login");
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

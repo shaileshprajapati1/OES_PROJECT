@@ -10,6 +10,7 @@ class Controller extends Model
     public $URL = "";
     function __construct()
     {
+        ob_start();
         parent::__construct();
         if ($_SERVER['HTTP_HOST'] == "localhost") {
             $this->URL = "http://localhost/oes_project/Public/";
@@ -25,13 +26,40 @@ class Controller extends Model
                     include_once("View/homepage.php");
                     include_once("View/footer.php");
                     break;
-                case '/home':
-                    include_once("View/header.php");
-                    include_once("View/homepage.php");
-                    include_once("View/footer.php");
+                case '/result':
+                    include_once("View/result.php");
                     break;
+
                 case '/quizpage':
-                        include_once("View/quizpage.php");
+                    $Viewquestion = $this->Select('questions');
+
+                    include_once("View/quizpage.php");
+                    if (isset($_POST['answer-submit'])) {
+                        array_pop($_POST);
+                        // echo "<pre>";
+                        // print_r($_POST);
+                        // echo "</pre>";
+                        $correctAnswers = 0;
+                        // $i = 1;
+                        foreach ($_POST as $key => $value) {
+                            foreach ($Viewquestion['Data'] as $key => $dvalue) {
+                                if ($value == $dvalue->answer) {
+                                    $correctAnswers++;
+                                }
+                            }
+                        }
+                        // Stored our score and attempted question value in session to be used on Result page
+                        $_SESSION['attempted'] = count($_POST);
+                        $_SESSION['score'] = $correctAnswers;
+                        // echo "<pre>";
+                        // print_r($_SESSION['attempted'])."<br>";
+                        // print_r($_SESSION['score']);
+                        header("location:result");
+                    } else {
+                        $_SESSION['attempted'] = 0;
+                        $_SESSION['score'] = 0;
+                        header("location:result");
+                    }
                     break;
                 case '/about':
                     include_once("View/header.php");
@@ -403,6 +431,7 @@ class Controller extends Model
             window.location.href ='home'
             </script>";
         }
+        ob_flush();
     }
 }
 

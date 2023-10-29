@@ -27,6 +27,10 @@ class Controller extends Model
                     include_once("View/footer.php");
                     break;
                 case '/result':
+                    $totalquestion = $this->Select("questions");
+                    // echo "<pre>";
+                    // print_r(count($totalquestion['Data']));
+                    // echo "</pre>";
                     include_once("View/result.php");
                     break;
 
@@ -45,6 +49,8 @@ class Controller extends Model
                             foreach ($Viewquestion['Data'] as $key => $dvalue) {
                                 if ($value == $dvalue->answer) {
                                     $correctAnswers++;
+                                } else {
+                                    echo "else";
                                 }
                             }
                         }

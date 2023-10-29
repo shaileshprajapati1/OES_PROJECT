@@ -39,23 +39,22 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <?php if ($_SESSION['score'] == 0) : ?>
+                    <?php if ($_SESSION['score'] == 0) { ?>
                         <div class="card my-2 p-3 text-center">
                             <div class="card-body">
                                 <h5 class="card-title py-2 text-center">No Question Attempted</h5>
                                 <button class="btn btn-warning">You Score is : <?php echo $_SESSION['score']; ?></button>
                             </div>
                         </div>
-
-                    <?php else : ?>
+                    <?php } else { ?>
                         <div class="card my-2 p-3 text-center">
                             <div class="card-body">
-                                <h5 class="card-title py-2 text-center">You have attempted <?php echo $_SESSION['attempted']; ?> out of <?php //echo totalquestion($conn); ?></h5>
+                                <h5 class="card-title py-2 text-center">You have attempted <?php echo $_SESSION['attempted']; ?> out of <?php echo count($totalquestion['Data']); ?></h5>
                                 <button class="btn btn-warning">You Score: <?php echo $_SESSION['score']; ?></button><span class="badge text-bg-primary">Answered <?php echo $_SESSION['score']; ?> Questions Successfully!</span>
                             </div>
                         </div>
 
-                    <?php endif ?>
+                    <?php } ?>
 
                     <div class="card my-2 p-3 text-center">
                         <div class="card-body">

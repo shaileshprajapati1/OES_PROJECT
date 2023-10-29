@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2023 at 02:44 PM
+-- Generation Time: Oct 29, 2023 at 02:15 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -72,8 +72,19 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `questions_name`, `option_1`, `option_2`, `option_3`, `option_4`, `answer`, `quiz_id`, `create_at`, `update_at`) VALUES
-(1, 'A near-replica of Agra`s Taj Mahal has been built at which place in India in the year 2023?', 'Ammaiyappan village, Tiruvarur (Tamil Nadu)', 'Phulwari Shariff, Patna (Bihar)', 'Burhanpur (Madhya Pradesh)', 'Ajmer (Rajasthan)', 'Ammaiyappan village, Tiruvarur (Tamil Nadu)', '1', '2023-10-15 12:08:56', '2023-10-15 12:08:56'),
-(3, 'Which is the only bank in India that allows customers to use any name as account number?', 'AXIS Bank', 'ICICI Bank', 'Indian Overseas Bank', 'Indian Bank', 'Indian Overseas Bank', '1', '2023-10-15 12:36:19', '2023-10-15 12:36:19');
+(1, 'Who is the father of PHP?', 'Drek Kolkevi', 'Rasmus Lerdorf', 'Willam Makepiece', 'List Barely', 'Rasmus Lerdorf', '1', '2023-10-29 12:49:41', '2023-10-29 12:49:41'),
+(2, ' What does PHP stand for?', 'PHP stands for Preprocessor Home Page', ' PHP stands for Pretext Hypertext Processor', 'PHP stands for Hypertext Preprocessor', 'PHP stands for Personal Hyper Processor', 'PHP stands for Hypertext Preprocessor', '1', '2023-10-29 12:50:46', '2023-10-29 12:50:46'),
+(3, 'Which of the following is the default file extension of PHP files?', '.php', '.ph', '.xml', '.html', '.php', '1', '2023-10-29 12:52:28', '2023-10-29 12:52:28'),
+(4, 'Variable name in PHP starts with -', '! (Exclamation)', '$ (Dollar)', '& (Ampersand)', '# (Hash)', '$ (Dollar)', '1', '2023-10-29 12:57:28', '2023-10-29 12:57:28'),
+(5, 'Which of the following is not a variable scope in PHP?', 'Extern', 'Local ', 'Static ', 'Global', 'Extern', '1', '2023-10-29 12:58:33', '2023-10-29 12:58:33'),
+(6, 'Which of the following is correct to add a comment in php?', 'a). & …… & ', 'b) .// ……', 'c). /* …… */', 'd). Both (b) and (c)', 'd). Both (b) and (c)', '1', '2023-10-29 13:00:21', '2023-10-29 13:00:21'),
+(7, 'Which of the following is used to display the output in PHP?', 'a). echo', 'b). write ', 'c). print ', 'd). Both (a) and (c)', 'd). Both (a) and (c)', '1', '2023-10-29 13:01:49', '2023-10-29 13:01:49'),
+(8, 'Which of the following is the use of strlen() function in PHP?', 'The strlen() function returns the type of string', 'The strlen() function returns the length of string', 'The strlen() function returns the value of string', 'The strlen() function returns both value and type of string', 'The strlen() function returns the length of string', '1', '2023-10-29 13:07:15', '2023-10-29 13:07:15'),
+(9, 'Which of the following is used for concatenation in PHP?', '+ (plus) ', '* (Asterisk) ', '. (dot) ', 'append()', '. (dot) ', '1', '2023-10-29 13:08:03', '2023-10-29 13:08:03'),
+(10, 'Which of the following starts with __ (double underscore) in PHP?', 'Inbuilt constants ', 'User-defined constants ', 'Magic constants ', 'Default constants', 'Magic constants ', '1', '2023-10-29 13:09:39', '2023-10-29 13:09:39'),
+(11, 'Which of the following is the use of strpos() function in PHP?', 'The strpos() function is used to search for the spaces in a string  ', 'The strpos() function is used to search for a number in a string', 'The strpos() function is used to search for a character/text in a string ', 'The strpos() function is used to search for a capitalize character in a string', 'The strpos() function is used to search for a character/text in a string ', '1', '2023-10-29 13:11:25', '2023-10-29 13:11:25'),
+(12, 'What does PEAR stands for?', 'PHP extension and application repository  ', 'PHP enhancement and application reduce', 'PHP event and application repository ', 'None of the above', 'PHP extension and application repository', '1', '2023-10-29 13:12:40', '2023-10-29 13:12:40'),
+(13, ' Which of the following is the correct way to create a function in PHP?', 'Create myFunction()', 'function myFunction()', 'New_function myFunction()', 'None of the above', 'function myFunction()', '1', '2023-10-29 13:15:01', '2023-10-29 13:15:01');
 
 -- --------------------------------------------------------
 
@@ -175,7 +186,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `quiz`

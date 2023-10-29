@@ -51,15 +51,13 @@ class Controller extends Model
                             foreach ($Viewquestion['Data'] as $key => $dvalue) {
                                 if ($value == $dvalue->answer) {
                                     $correctAnswers++;
-                                } else {
-                                    $IncorrectAnswers++;
                                 }
                             }
                         }
                         // Stored our score and attempted question value in session to be used on Result page
                         $_SESSION['attempted'] = count($_POST);
                         $_SESSION['score'] = $correctAnswers;
-                        $_SESSION['IncorrectAnswers'] = $IncorrectAnswers;
+                     
                         // echo "<pre>";
                         // print_r($_SESSION['attempted'])."<br>";
                         // print_r($_SESSION['score']);
